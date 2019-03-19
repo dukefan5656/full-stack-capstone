@@ -9,7 +9,7 @@
     "start": "node index.js",
     "test": "mocha --exit",
     "server": "node index.js",
-    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npmrun build"
+    "heroku-postbuild": "--prefix npm install --only=dev && --prefix npm install && --prefix npm run build"
   },
   "keywords": [],
   "author": "",
