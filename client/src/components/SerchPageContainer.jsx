@@ -13,7 +13,6 @@ export default class Search extends React.Component {
       results: []
     };
   }
-
   search(city, zip, type){
     return fetch("http://localhost:8080/listings", {
       credentials: "include",

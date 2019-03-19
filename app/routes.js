@@ -14,7 +14,9 @@ module.exports = function(app, passport) {
     });
   }
 
-
+  app.get("/hello", (req, res) => {
+    res.send("hello");
+  })
 
   app.get("/listing/:id", isLoggedIn, (req, res, next) => {
     Listing.findById(req.params.id)
