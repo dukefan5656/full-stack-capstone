@@ -43,7 +43,7 @@ export const signup = (email, password, type) => {
     })
       .then(res => {
         // TODO - Fix check to work for agents
-        if (res.url.endsWith === "/seller_profile") {
+        if (res.url.endsWith("/seller_profile")) {
           return res.json();
         } else {
           throw new Error("invalid login");
@@ -75,7 +75,7 @@ export const logIn = (email, password) => {
     })
       .then(res => {
         // TODO - Fix check to work for agents
-        if (res.url.endsWith === "/seller_profile") {
+        if (res.url.endsWith("/seller_profile")) {
           return res.json();
         } else {
           throw new Error("invalid login");
