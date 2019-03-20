@@ -14,7 +14,7 @@ export default class Search extends React.Component {
     };
   }
   search(city, zip, type){
-    return fetch("http://localhost:8080/listings", {
+    return fetch("/listings", {
       credentials: "include",
       method: "POST",
       headers: {
