@@ -52,6 +52,9 @@
     flex-direction: column;
     justify-content: space-around;
 }
+#text-box{
+  max-width: 315px;
+}
 }
 
 .heading p{
