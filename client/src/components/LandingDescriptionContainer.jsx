@@ -20,6 +20,10 @@ export default function LandingDescription() {
       </section>
       <section className="landing-features" id="features">
         <h2>WE PUT THE POWER IN THE HANDS OF THE SELLER. </h2>
+        <p>At YOUR MOVE, register as either a seller or an agent. 
+          <br/>As a seller, you'll be creating listings that are available for agents to find and bid on.
+          <br/>As an agent, you'll search for properties in your area which you will be able to submit bids on. 
+          <br/>If you would like to demo the app without signing up, please click the login button and follow the instructions!</p>
         <div className="features-container">
           <div className="features">
             <div className="features-child">

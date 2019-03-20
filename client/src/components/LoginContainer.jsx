@@ -21,7 +21,10 @@ export class Login extends React.Component {
             <h1>
               <span className="fa fa-sign-in" /> Login
             </h1>
-
+            <p>If you would like to use a demo account, please choose one of the options below:
+              <br/>Seller: seller-demo@email.com Password: password
+              <br/>Agent: agent-demo@email.com Password: password
+            </p>
             <form
               onSubmit={event => {
                 event.preventDefault();

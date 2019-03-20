@@ -20,6 +20,7 @@ export class Signup extends React.Component {
             <span className="fa fa-sign-in" />
             Sign-up
           </h1>
+          <p>If you would like to try signing-up, you can currently enter any value that follows the @email.com template. User information will be deleted within 30 days.</p>
 
           <form
             onSubmit={event => {

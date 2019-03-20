@@ -43,6 +43,10 @@ export default class Search extends React.Component {
     return (
       <div>
         <Navbar />
+        <p>As there are currently limited listings available, you can click the "Search Properties" button and view all listings available.
+          <br/>If you'd like to test the query fields, use the following in any combination or individually:
+          <br/>City: Asheville Zipcode: 28805 Property Type: Condo
+        </p>
         <form
           className="search-form"
           onSubmit={event => this.handleSubmit(event)}

@@ -12,7 +12,7 @@ export class ListingForm extends React.Component {
       street: "",
       zip: "",
       city: "",
-      type: "",
+      type: "house",
       bed: 0,
       bath: 0,
       footage: 0,
@@ -87,7 +87,7 @@ export class ListingForm extends React.Component {
               name="type"
             >
               {" "}
-              <option>Select Property Type</option>
+              <option >Select Property Type</option>
               <option value="House">House</option>
               <option value="Condo">Condo</option>
               <option value="Trailer">Trailer</option>
@@ -129,9 +129,11 @@ export class ListingForm extends React.Component {
           <div className="form-group">
             <label>Describe Your Property</label>
             <br />
-            <input
+            <textarea
               id="textbox"
               type="text-box"
+              rows="10"
+              columns="80"
               required
               value={this.state.description}
               onChange={event =>
