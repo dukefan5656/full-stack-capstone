@@ -1,10 +1,10 @@
-import React from 'react';
-import { shallow } from 'enzyme';
+import React from "react";
+import { shallow } from "enzyme";
 
-import LandingNavbar from './LandingNavbarContainer';
+import LandingNavbar from "./LandingNavbarContainer";
 
-describe('LandingNavbar', () => {
-	it('does not crash', () => {
-		shallow(<LandingNavbar />);
-	});
+describe("LandingNavbar", () => {
+  it("does not crash", () => {
+    shallow(<LandingNavbar />);
+  });
 });

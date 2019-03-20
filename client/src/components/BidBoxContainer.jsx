@@ -5,7 +5,6 @@ import { updateBid, deleteBid } from ".././actions/index";
 import DeleteBidBox from "./deleteBidBox";
 
 export class BidBox extends React.Component {
-
   render() {
     if (
       this.props.userId === this.props.user._id ||
@@ -15,7 +14,7 @@ export class BidBox extends React.Component {
         <div className="bid-box">
           <React.Fragment>
             <div className="image-container">
-            <img alt="loading" src={require("./styles/images/condo-1.jpg")}/>
+              <img alt="loading" src={require("./styles/images/condo-1.jpg")} />
             </div>
             <div className="bid-box-description-container">
               <ul className="bid-box-description">
@@ -47,13 +46,15 @@ export class BidBox extends React.Component {
                 >
                   Accept
                 </button>
-                
               </div>
             )}
-            
+
             {this.props.userId === this.props.user._id && (
               <div className="delete-bid-button-container">
-              <DeleteBidBox deleteBid={this.props.deleteBid} bidId={this.props._id} />               
+                <DeleteBidBox
+                  deleteBid={this.props.deleteBid}
+                  bidId={this.props._id}
+                />
               </div>
             )}
           </React.Fragment>
@@ -67,7 +68,7 @@ export class BidBox extends React.Component {
 //todo add delete bid
 export default connect(
   /* istanbul ignore next */
-  (state) => {
+  state => {
     const user_id = state.currentUser.user;
     return {
       userId: user_id
@@ -77,7 +78,7 @@ export default connect(
   dispatch => {
     return {
       updateBid: (id, status) => dispatch(updateBid(id, status)),
-      deleteBid: (id) => dispatch(deleteBid(id))
+      deleteBid: id => dispatch(deleteBid(id))
     };
   }
 )(BidBox);

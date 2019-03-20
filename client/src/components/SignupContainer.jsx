@@ -61,17 +61,19 @@ export class Signup extends React.Component {
                 type="radio"
                 value="agent"
                 required
-                onChange={event => this.setState({ type: event.target.value })} 
+                onChange={event => this.setState({ type: event.target.value })}
                 className="form-control"
                 name="type"
-              />Agent
+              />
+              Agent
               <input
                 type="radio"
                 value="seller"
-                onChange={event => this.setState({ type: event.target.value })} 
+                onChange={event => this.setState({ type: event.target.value })}
                 className="form-control"
                 name="type"
-              />Seller
+              />
+              Seller
             </div>
 
             <button type="submit" className="btn btn-warning btn-lg">

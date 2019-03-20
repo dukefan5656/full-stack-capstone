@@ -1,11 +1,11 @@
-import React from 'react';
-import { mount } from 'enzyme';
+import React from "react";
+import { mount } from "enzyme";
 
-import { withRouter } from '../setupTests';
-import LandingPage from './LandingPageContainer';
+import { withRouter } from "../setupTests";
+import LandingPage from "./LandingPageContainer";
 
-describe('LandingPage', () => {
-	it('does not crash', () => {
-		withRouter(mount, <LandingPage />);
-	});
+describe("LandingPage", () => {
+  it("does not crash", () => {
+    withRouter(mount, <LandingPage />);
+  });
 });

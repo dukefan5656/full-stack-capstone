@@ -1,6 +1,5 @@
 import * as actions from "../actions";
 
-
 const initialCurrentUser = { user: null, email: null, userType: null };
 export const currentUserReducer = (state = initialCurrentUser, action) => {
   switch (action.type) {
@@ -19,7 +18,6 @@ export const currentUserReducer = (state = initialCurrentUser, action) => {
   }
 };
 
-
 export const userReducer = (state = {}, action) => {
   switch (action.type) {
     case "ADD_LISTING_SUCCESS":
@@ -35,22 +33,27 @@ export const userReducer = (state = {}, action) => {
       return { ...state, ...action.entities.users };
     case "GET_SELLER_PAYLOAD_SUCCESS":
       return { ...state, ...action.entities.users };
-      case "DELETE_BID_SUCCESS":
+    case "DELETE_BID_SUCCESS":
       return Object.values(state).reduce((newState, user) => {
-        const newUser = {...user, bids : user.bids.filter(bidId => bidId !== action.id)}
+        const newUser = {
+          ...user,
+          bids: user.bids.filter(bidId => bidId !== action.id)
+        };
         newState[newUser._id] = newUser;
         return newState;
       }, {});
-      case "DELETE_LISTING_SUCCESS":
+    case "DELETE_LISTING_SUCCESS":
       return Object.values(state).reduce((newState, user) => {
-        const newUser = {...user}
-        if(newUser.listings !== undefined){
-          newUser.listings = newUser.listings.filter(listingId => listingId !== action.id);
+        const newUser = { ...user };
+        if (newUser.listings !== undefined) {
+          newUser.listings = newUser.listings.filter(
+            listingId => listingId !== action.id
+          );
         }
         newState[newUser._id] = newUser;
         return newState;
-      }, {}); 
-    
+      }, {});
+
     default:
       return state;
   }
@@ -70,9 +73,9 @@ export const bidReducer = (state = {}, action) => {
     case "UPDATE_BID_SUCCESS":
       return { ...state, ...action.entities.bids };
     case "DELETE_BID_SUCCESS":
-    let copiedState = Object.assign({}, state) 
-    delete copiedState[action.id]; 
-    return copiedState;
+      let copiedState = Object.assign({}, state);
+      delete copiedState[action.id];
+      return copiedState;
     default:
       return state;
   }
@@ -85,14 +88,11 @@ export const listingReducer = (state = {}, action) => {
     case "ADD_LISTING_SUCCESS":
       return { ...state, ...action.entities.listings };
     case "GET_LISTING_SUCCESS":
-
       return { ...state, ...action.entities.listings };
     case "GET_AGENT_PAYLOAD_SUCCESS":
-
       return { ...state, ...action.entities.listings };
 
     case "GET_SELLER_PAYLOAD_SUCCESS":
-
       return { ...state, ...action.entities.listings };
     case "ADD_BID_SUCCESS":
       const bid = action.entities.bids[action.id];
@@ -102,16 +102,19 @@ export const listingReducer = (state = {}, action) => {
         ...state,
         [bid.listing]: { ...listing, bids: [...listing.bids, bid._id] }
       };
-      case "DELETE_BID_SUCCESS":
+    case "DELETE_BID_SUCCESS":
       return Object.values(state).reduce((newState, listing) => {
-        const newListing = {...listing, bids : listing.bids.filter(bidId => bidId !== action.id)}
+        const newListing = {
+          ...listing,
+          bids: listing.bids.filter(bidId => bidId !== action.id)
+        };
         newState[newListing._id] = newListing;
         return newState;
       }, {});
-      
+
     case "DELETE_LISTING_SUCCESS":
-      let copiedState = Object.assign({}, state) 
-      delete copiedState[action.id]; 
+      let copiedState = Object.assign({}, state);
+      delete copiedState[action.id];
       return copiedState;
     default:
       return state;

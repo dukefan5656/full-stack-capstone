@@ -1,34 +1,32 @@
-const mongoose = require('mongoose');
-const bcrypt   = require('bcrypt-nodejs');
+const mongoose = require("mongoose");
+const bcrypt = require("bcrypt-nodejs");
 
-
-const userSchema = mongoose.Schema({
+const userSchema = mongoose.Schema(
+  {
     local: {
-    email: String,
-    password: String,
+      email: String,
+      password: String
     },
     issuedAt: Date,
     firstName: String,
     lastName: String,
     type: String,
-    listings: [{type: mongoose.Schema.Types.ObjectId,
-                 ref: "Listing"}],
-    bids: [{type: mongoose.Schema.Types.ObjectId,
-    ref: "Bid"}],
-},{usePushEach: true});
+    listings: [{ type: mongoose.Schema.Types.ObjectId, ref: "Listing" }],
+    bids: [{ type: mongoose.Schema.Types.ObjectId, ref: "Bid" }]
+  },
+  { usePushEach: true }
+);
 
-const listingSchema = mongoose.Schema ({
+const listingSchema = mongoose.Schema(
+  {
     headline: String,
-    street:  String,
+    street: String,
     zip: String,
     city: String,
     state: String,
     type: String,
-    user: {type: mongoose.Schema.Types.ObjectId,
-      ref: "User"
-    },
-    bids: [{type: mongoose.Schema.Types.ObjectId,
-      ref: "Bid"}],
+    user: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+    bids: [{ type: mongoose.Schema.Types.ObjectId, ref: "Bid" }],
     bed: Number,
     bath: Number,
     footage: Number,
@@ -41,30 +39,29 @@ const listingSchema = mongoose.Schema ({
       is: Boolean
     },
     status: String
-  },{usePushEach: true});
+  },
+  { usePushEach: true }
+);
 
-  const bidSchema = mongoose.Schema ({
-    user: {type: mongoose.Schema.Types.ObjectId,
-      ref: "User"
-    },
-    listing: {type: mongoose.Schema.Types.ObjectId,
-      ref: "Listing"
-    },
+const bidSchema = mongoose.Schema(
+  {
+    user: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+    listing: { type: mongoose.Schema.Types.ObjectId, ref: "Listing" },
     amount: Number,
     createdAt: Date,
     status: String
-  },{usePushEach: true});
+  },
+  { usePushEach: true }
+);
 
+userSchema.pre("find", function(next) {
+  this.populate("listing");
+  this.populate("bids");
+  next();
+});
 
-  userSchema.pre('find',function(next){
-    this.populate('listing');
-    this.populate('bids');
-    next();
-  });
-
-  const getOrCreate = (db, name, schema) => db.models[name] || db.model(name, schema);
-
-
+const getOrCreate = (db, name, schema) =>
+  db.models[name] || db.model(name, schema);
 
 // generating a hash
 userSchema.methods.generateHash = function(password) {
@@ -78,7 +75,7 @@ userSchema.methods.validPassword = function(password) {
 
 // create the model for users and expose it to the app
 module.exports = db => ({
-                User: getOrCreate(db, 'User', userSchema), 
-                Listing: getOrCreate(db, 'Listing', listingSchema), 
-                Bid: getOrCreate(db, 'Bid', bidSchema)
+  User: getOrCreate(db, "User", userSchema),
+  Listing: getOrCreate(db, "Listing", listingSchema),
+  Bid: getOrCreate(db, "Bid", bidSchema)
 });

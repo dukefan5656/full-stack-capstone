@@ -1,10 +1,10 @@
-import React from 'react';
-import { shallow } from 'enzyme';
+import React from "react";
+import { shallow } from "enzyme";
 
-import LandingDescription from './LandingDescriptionContainer';
+import LandingDescription from "./LandingDescriptionContainer";
 
-describe('LandingDescription', () => {
-	it('does not crash', () => {
-		shallow(<LandingDescription />);
-	});
+describe("LandingDescription", () => {
+  it("does not crash", () => {
+    shallow(<LandingDescription />);
+  });
 });

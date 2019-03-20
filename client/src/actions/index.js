@@ -128,7 +128,7 @@ export const addBidFailure = error => {
 export const ADD_BID_REQUEST = "ADD_BID_REQUEST";
 export const addBid = (amount, id) => dispatch => {
   dispatch({ type: ADD_BID_REQUEST, id, amount });
-  return fetch("/createBid/"+id, {
+  return fetch("/createBid/" + id, {
     method: "POST",
     credentials: "include",
     headers: {
@@ -176,30 +176,30 @@ export const addListing = args => dispatch => {
   dispatch({ type: ADD_LISTING_REQUEST, args });
 
   return fetch("/createListing", {
-      method: "POST",
-      credentials: "include",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(args)
-    })
-      .then(res => {
-        if (res.headers.get("Content-Type").includes("application/json")) {
-          if (res.ok) {
-            return res.json();
-          }
-
-          return res.json().then(json => {
-            throw Error("API: " + JSON.stringify(json));
-          });
+    method: "POST",
+    credentials: "include",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(args)
+  })
+    .then(res => {
+      if (res.headers.get("Content-Type").includes("application/json")) {
+        if (res.ok) {
+          return res.json();
         }
 
-        return res.text().then(text => {
-          throw Error("HTTP " + res.status + " : " + text);
+        return res.json().then(json => {
+          throw Error("API: " + JSON.stringify(json));
         });
-      })
-      .then(json => dispatch(addListingSuccess(json)))
-      .catch(error => dispatch(addListingFailure(error)));
+      }
+
+      return res.text().then(text => {
+        throw Error("HTTP " + res.status + " : " + text);
+      });
+    })
+    .then(json => dispatch(addListingSuccess(json)))
+    .catch(error => dispatch(addListingFailure(error)));
 };
 
 //#endregion Add Listing
@@ -220,33 +220,31 @@ export const updateBidFailure = error => {
 export const UPDATE_BID_REQUEST = "UPDATE_BID_REQUEST";
 export const updateBid = (id, status) => dispatch => {
   dispatch({ type: UPDATE_BID_REQUEST, id, status });
-  return (
-    fetch("/updateBid", {
-      method: "PUT",
-      credentials: "include",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ id, status })
-    })
-      .then(res => {
-        if (res.headers.get("Content-Type").includes("application/json")) {
-          if (res.ok) {
-            return res.json();
-          }
-
-          return res.json().then(json => {
-            throw Error("API: " + JSON.stringify(json));
-          });
+  return fetch("/updateBid", {
+    method: "PUT",
+    credentials: "include",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ id, status })
+  })
+    .then(res => {
+      if (res.headers.get("Content-Type").includes("application/json")) {
+        if (res.ok) {
+          return res.json();
         }
 
-        return res.text().then(text => {
-          throw Error("HTTP " + res.status + " : " + text);
+        return res.json().then(json => {
+          throw Error("API: " + JSON.stringify(json));
         });
-      })
-      .then(json => dispatch(updateBidSuccess(json)))
-      .catch(error => dispatch(updateBidFailure(error)))
-  );
+      }
+
+      return res.text().then(text => {
+        throw Error("HTTP " + res.status + " : " + text);
+      });
+    })
+    .then(json => dispatch(updateBidSuccess(json)))
+    .catch(error => dispatch(updateBidFailure(error)));
 };
 
 //#endregion Update Bid
@@ -354,7 +352,7 @@ export const getListingFailure = error => {
 export const GET_LISTING_REQUEST = "GET_LISTING_REQUEST";
 export const getListing = id => dispatch => {
   dispatch({ type: GET_LISTING_REQUEST, id });
-  return fetch("/listing/"+id, {
+  return fetch("/listing/" + id, {
     method: "GET",
     credentials: "include"
   })
@@ -396,7 +394,6 @@ export const deleteListingFailure = error => {
 export const DELETE_LISTING_REQUEST = "DELETE_LISTING_REQUEST";
 export const deleteListing = (listingId, bidIds) => dispatch => {
   dispatch({ type: DELETE_LISTING_REQUEST, listingId, bidIds });
-  
 
   return fetch(`/listings/${listingId}`, {
     method: "DELETE",
@@ -407,11 +404,11 @@ export const deleteListing = (listingId, bidIds) => dispatch => {
     })
     .then(json => {
       bidIds.forEach(bidId => dispatch(deleteBidSuccess(bidId)));
-      dispatch(deleteListingSuccess(listingId, bidIds))
+      dispatch(deleteListingSuccess(listingId, bidIds));
     })
     .catch(error => {
       bidIds.forEach(bidId => dispatch(deleteBidFailure(bidId)));
-      dispatch(deleteListingFailure(error))
+      dispatch(deleteListingFailure(error));
     });
 };
 export const DELETE_BID_SUCCESS = "DELETE_BID_SUCCESS";
@@ -443,26 +440,26 @@ export const deleteBid = id => dispatch => {
 
 export const LOG_OUT_SUCCESS = "LOG_OUT_SUCCESS";
 export const logoutSuccess = () => dispatch => {
-  dispatch({ type: LOG_OUT_SUCCESS })
+  dispatch({ type: LOG_OUT_SUCCESS });
   history.push("/");
 };
 
 export const LOG_OUT_FAILURE = "LOG_OUT_FAILURE";
 export const logoutFailure = error => {
-  return { type: LOG_OUT_FAILURE, message: error};
-}
+  return { type: LOG_OUT_FAILURE, message: error };
+};
 export const LOG_OUT_REQUEST = "LOG_OUT_REQUEST";
 export const logOut = () => {
- return dispatch => {
-   dispatch({ type: LOG_OUT_REQUEST});
-   return fetch("/logout", {
-     credentials: "include",
-     method: "GET",
-     headers: {
-       "Content-Type": "application/json"
-     }
-   })
-  .then(() => dispatch(logoutSuccess()))
-  .catch(error => dispatch(logoutFailure(error)))
+  return dispatch => {
+    dispatch({ type: LOG_OUT_REQUEST });
+    return fetch("/logout", {
+      credentials: "include",
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(() => dispatch(logoutSuccess()))
+      .catch(error => dispatch(logoutFailure(error)));
+  };
 };
-}

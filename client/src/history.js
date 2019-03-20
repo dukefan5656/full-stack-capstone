@@ -1,3 +1,3 @@
-import {createBrowserHistory} from 'history';
+import { createBrowserHistory } from "history";
 const store = createBrowserHistory();
 export default store;

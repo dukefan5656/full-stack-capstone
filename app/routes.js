@@ -1,26 +1,27 @@
 module.exports = function(app, passport) {
   const { User, Listing, Bid } = require("./models/user")(app.locals.db);
 
-  if (process.env.NODE_ENV === 'test'){
-    app.get('/cleardb', (_, res, next) => {
+  if (process.env.NODE_ENV === "test") {
+    app.get("/cleardb", (_, res, next) => {
       return Promise.all([
         User.deleteMany({}),
         Listing.deleteMany({}),
         Bid.deleteMany({})
-      ]).then(() => {
-        console.log('DATABASE CLEARED');
-        return res.status(200).end();
-      }).catch(next);
+      ])
+        .then(() => {
+          console.log("DATABASE CLEARED");
+          return res.status(200).end();
+        })
+        .catch(next);
     });
   }
 
-  app.get("/hello", (req, res) => {
-    res.send("hello");
-  })
-
   app.get("/listing/:id", isLoggedIn, (req, res, next) => {
     Listing.findById(req.params.id)
-      .populate({ path: "bids", populate: { path: "user", select: "local.email bids listings" } })
+      .populate({
+        path: "bids",
+        populate: { path: "user", select: "local.email bids listings" }
+      })
       .populate("user")
       .then(listing => {
         return res.json({ listing });
@@ -121,7 +122,9 @@ module.exports = function(app, passport) {
     let id = req.params.id;
     Listing.findById(id)
       .then(listing => {
-        return Promise.all(listing.bids.map(bidId => Bid.findByIdAndRemove(bidId)));
+        return Promise.all(
+          listing.bids.map(bidId => Bid.findByIdAndRemove(bidId))
+        );
       })
       .then(() => {
         return Listing.findByIdAndRemove(id);
@@ -152,9 +155,10 @@ module.exports = function(app, passport) {
   });
 
   app.post("/createListing", isLoggedIn, (req, res, next) => {
-    if (req.user.type !== 'seller') return res.status(400).json({
-      message: 'You are not a seller'
-    });
+    if (req.user.type !== "seller")
+      return res.status(400).json({
+        message: "You are not a seller"
+      });
 
     let newListing = {
       headline: req.body.headline,
@@ -203,7 +207,8 @@ module.exports = function(app, passport) {
         return Bid.findById(req.body.id).then(updatedBid => {
           res.json(updatedBid);
         });
-      }).catch(next);
+      })
+      .catch(next);
   });
 
   app.put("/updateListing/:id", (req, res, next) => {
@@ -237,7 +242,8 @@ module.exports = function(app, passport) {
       })
       .then(listing => {
         res.json(listing);
-      }).catch(next);
+      })
+      .catch(next);
   });
 
   // LOGOUT ==============================

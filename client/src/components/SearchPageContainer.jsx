@@ -13,7 +13,7 @@ export default class Search extends React.Component {
       results: []
     };
   }
-  search(city, zip, type){
+  search(city, zip, type) {
     return fetch("/listings", {
       credentials: "include",
       method: "POST",
@@ -28,9 +28,13 @@ export default class Search extends React.Component {
     });
   }
 
-  handleSubmit(event){
+  handleSubmit(event) {
     event.preventDefault();
-    return this.search(this.state.searchCity, this.state.searchZip, this.state.searchType)
+    return this.search(
+      this.state.searchCity,
+      this.state.searchZip,
+      this.state.searchType
+    )
       .then(response => response.json())
       .then(listings => this.setState({ results: listings }));
   }
@@ -39,7 +43,8 @@ export default class Search extends React.Component {
     return (
       <div>
         <Navbar />
-        <form className="search-form"
+        <form
+          className="search-form"
           onSubmit={event => this.handleSubmit(event)}
         >
           <div className="form-group">

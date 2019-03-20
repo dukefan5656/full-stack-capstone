@@ -8,7 +8,6 @@ export class Profile extends React.Component {
     if (this.props.userType === "agent") {
       return <Agent />;
     } else {
-    
       return <Seller />;
     }
   }

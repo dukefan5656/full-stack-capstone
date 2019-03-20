@@ -16,8 +16,9 @@ export class Seller extends React.Component {
     };
   }
   componentDidMount() {
-    return this.props.getPayload()
-    .then(() => this.setState({ loading: false }));
+    return this.props
+      .getPayload()
+      .then(() => this.setState({ loading: false }));
   }
   render() {
     if (this.state.loading) {
@@ -28,12 +29,16 @@ export class Seller extends React.Component {
       <React.Fragment>
         <Navbar />
         <main className="seller-profile-container">
-          <section style={{ backgroundColor: '#193d5c' }}>
+          <section style={{ backgroundColor: "#193d5c" }}>
             <div className="heading">
-              {this.props.listings.length === 0 ? <p>You don't currently have any active listings</p> : <p>
-                View Your Listings. You can click the picture below to view the full
-                details
-              </p>}
+              {this.props.listings.length === 0 ? (
+                <p>You don't currently have any active listings</p>
+              ) : (
+                <p>
+                  View Your Listings. You can click the picture below to view
+                  the full details
+                </p>
+              )}
             </div>
             <ul>
               {this.props.listings.map(listing => {
@@ -45,13 +50,15 @@ export class Seller extends React.Component {
             <ListingForm />
           </div>
           <div className="bid-box-container">
-          {this.props.bids.length === 0 ? <p>You don't currently have any active bids</p> : <p>Current bids for your listing</p>}
+            {this.props.bids.length === 0 ? (
+              <p>You don't currently have any active bids</p>
+            ) : (
+              <p>Current bids for your listing</p>
+            )}
             {this.props.bids.map(bid => {
               return <BidBox key={bid._id} {...bid} />;
             })}
           </div>
-          
-          
         </main>
       </React.Fragment>
     );
