@@ -1,6 +1,7 @@
 import React from "react";
 import "./styles/login-style.css";
 import { connect } from "react-redux";
+import {Link} from "react-router-dom";
 import { logIn } from "../actions/index";
 import Navbar from "./NavbarComponent";
 export class Login extends React.Component {
@@ -63,10 +64,10 @@ export class Login extends React.Component {
               </button>
             </form>
             <p>
-              Need an account? <a href="/signup">Signup</a>
+              Need an account? <Link to="/signup"><button>Signup</button></Link>
             </p>
             <p>
-              Or go <a href="/">home</a>.
+              Or go <Link to="/"><button>home</button></Link>
             </p>
           </div>
         </div>

@@ -2,6 +2,7 @@ import React from "react";
 // import "./signup-style.css";
 import { connect } from "react-redux";
 import { signup } from "../actions/index";
+import {Link} from "react-router-dom";
 export class Signup extends React.Component {
   constructor(props) {
     super(props);
@@ -35,7 +36,7 @@ export class Signup extends React.Component {
             <div className="form-group">
               <label>Email</label>
               <input
-                type="text"
+                type="email"
                 required
                 value={this.state.email}
                 onChange={event => this.setState({ email: event.target.value })}
@@ -82,10 +83,10 @@ export class Signup extends React.Component {
             </button>
           </form>
           <p>
-            Already have an account? <a href="/login">Login</a>
+            Already have an account? <Link to="/login"><button>Login</button></Link>
           </p>
           <p>
-            Or go <a href="/">home</a>.
+          Or go <Link to="/"><button>home</button></Link>
           </p>
         </div>
       </div>

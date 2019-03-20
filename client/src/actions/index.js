@@ -18,7 +18,7 @@ export const signupSuccess = json => {
 };
 
 export const signupFailure = error => {
-  return { type: SIGN_UP_FAILURE, message: error };
+  return alert("There was a problem with your registration");
 };
 
 export const SIGN_UP_FAILURE = "SIGN_UP_FAILURE";
@@ -99,7 +99,7 @@ export const logInSuccess = json => {
 };
 
 export const logInFailure = error => {
-  return { type: LOG_IN_FAILURE, message: error };
+  return alert("There was a problem with your login. Check your credentials and try again.");
 };
 
 export const LOG_IN_FAILURE = "LOG_IN_FAILURE";
