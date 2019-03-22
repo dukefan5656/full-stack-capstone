@@ -5,7 +5,7 @@ export default function DeleteBidBox(props) {
     <div className="delete-warning-container">
       <button
         onClick={event => {
-          console.log(props);
+          event.preventDefault();
           props.deleteBid(props.bidId);
         }}
       >

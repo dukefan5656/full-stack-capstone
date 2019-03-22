@@ -32,7 +32,6 @@ export class FullListing extends React.Component {
     if (this.props.listing === undefined) {
       return <NoListing />, <Link to="/profile"><button>Back to Profile</button></Link>
     }
-
     return (
       <div>
         <Navbar />
@@ -76,7 +75,9 @@ export class FullListing extends React.Component {
       </div>
     );
   }
-}
+} 
+
+
 //refactor getListing and deleteListing for mapDispatchToProps
 export default connect(
   /* istanbul ignore next */

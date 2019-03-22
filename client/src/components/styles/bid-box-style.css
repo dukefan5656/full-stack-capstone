@@ -38,3 +38,8 @@ button{
   color: initial;
 }
 
+@media (max-width: 900px){
+  button{
+    width: 160px;
+}
+}
