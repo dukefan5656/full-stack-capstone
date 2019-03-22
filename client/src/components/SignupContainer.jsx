@@ -2,6 +2,7 @@ import React from "react";
 // import "./signup-style.css";
 import { connect } from "react-redux";
 import { signup } from "../actions/index";
+import Navbar from "./NavbarComponent"
 import {Link} from "react-router-dom";
 export class Signup extends React.Component {
   constructor(props) {
@@ -15,6 +16,8 @@ export class Signup extends React.Component {
 
   render() {
     return (
+      <React.Fragment>
+      <Navbar />
       <div className="container">
         <div className="col-sm-6 col-sm-offset-3">
           <h1>
@@ -90,6 +93,7 @@ export class Signup extends React.Component {
           </p>
         </div>
       </div>
+      </React.Fragment>
     );
   }
 }

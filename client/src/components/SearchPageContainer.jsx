@@ -2,6 +2,7 @@ import React from "react";
 import "./styles/search-page-style.css";
 import Navbar from "./NavbarComponent";
 import MiniListing from "./MiniListingContainer";
+import {Link} from "react-router-dom";
 
 export default class Search extends React.Component {
   constructor(props) {
@@ -95,6 +96,7 @@ export default class Search extends React.Component {
           <button type="submit" className="btn btn-warning btn-lg">
             Search Properties
           </button>
+          <Link to="/profile"><button>Back to Profile</button></Link>
         </form>
         {this.state.results.map(result => {
           return <MiniListing key={result._id} {...result} />;

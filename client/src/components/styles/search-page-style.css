@@ -5,3 +5,16 @@ button{
   height: 30px;
 }
 
+@media (max-width: 900px){
+  .search-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.button{
+  width: 60px;
+}
+.btn .btn-warning .btn-lg{
+  width: 60px;
+}
+}

@@ -30,7 +30,7 @@ export class FullListing extends React.Component {
     }
 
     if (this.props.listing === undefined) {
-      return <NoListing />;
+      return <NoListing />, <Link to="/profile"><button>Back to Profile</button></Link>
     }
 
     return (

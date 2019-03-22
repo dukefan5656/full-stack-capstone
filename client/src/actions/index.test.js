@@ -3,14 +3,14 @@ import * as Actions from "./index";
 import history from "../history";
 
 const clearDB = () =>
-  fetch("http://localhost:8080/cleardb", { credentials: "include" }).then(
+  fetch("/cleardb", { credentials: "include" }).then(
     response => {
       return response.ok ? Promise.resolve() : Promise.reject(response.status);
     }
   );
 
 const signup = (email, password, type) =>
-  fetch(`http://localhost:8080/signup`, {
+  fetch("/signup", {
     method: "POST",
     credentials: "include",
     headers: {
@@ -22,7 +22,7 @@ const signup = (email, password, type) =>
       type
     })
   }).then(res => {
-    if (res.url === "http://localhost:8080/seller_profile") {
+    if (res.url.endsWith("/seller_profile")) {
       return res.json();
     } else {
       throw new Error("invalid login");
@@ -30,7 +30,7 @@ const signup = (email, password, type) =>
   });
 
 const login = (email, password) =>
-  fetch(`http://localhost:8080/login`, {
+  fetch("/login", {
     credentials: "include",
     method: "POST",
     headers: {
@@ -41,7 +41,7 @@ const login = (email, password) =>
       password
     })
   }).then(res => {
-    if (res.url === "http://localhost:8080/seller_profile") {
+    if (res.url.endsWith("/seller_profile")) {
       return res.json();
     } else {
       throw new Error("invalid login");
@@ -49,7 +49,7 @@ const login = (email, password) =>
   });
 
 const logout = () =>
-  fetch(`http://localhost:8080/logout`, {
+  fetch("/logout", {
     credentials: "include",
     method: "GET",
     headers: {
@@ -58,7 +58,7 @@ const logout = () =>
   });
 
 const addListing = args =>
-  fetch("http://localhost:8080/createListing", {
+  fetch("/createListing", {
     method: "POST",
     credentials: "include",
     headers: {
@@ -82,7 +82,7 @@ const addListing = args =>
   });
 
 const addBid = (id, amount) =>
-  fetch("http://localhost:8080/createBid/" + id, {
+  fetch("/createBid/" + id, {
     method: "POST",
     credentials: "include",
     headers: {

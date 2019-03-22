@@ -15,9 +15,7 @@ body {
   color: #FBEEC1;
   display: flex;
 }
-html{
-  width: 100%;
-}
+
 #root{
   width: 100%;
   max-width: 1920px;

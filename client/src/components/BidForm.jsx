@@ -20,7 +20,7 @@ export class BidBoxForm extends React.Component {
         <div className="form-group">
           <label>Bid</label>
           <input
-            type="text"
+            type="number"
             value={this.state.amount}
             onChange={event => {
               this.setState({ amount: event.target.value });
