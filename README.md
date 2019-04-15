@@ -1,6 +1,5 @@
 # Your Move
-
-<h3 id="index">Index</h3><br>
+<h3 id="index">Index</h3>
 1. <a href="#notes">Notes</a><br>
 2. <a href="#user">User Story</a><br>
   2a. <a href="#seller">Seller</a><br>
@@ -56,7 +55,7 @@ This view shows the headline the seller has created and (as of version 1) will s
 ### View Full Listing As Seller
 By clicking on a mini-listing component, you will be taken to the full listing overview page. This is where you can review all of the information submitted for a listing. You are also able to delete the listing and/or accept/reject bids. 
 
-
+![full-listing](https://user-images.githubusercontent.com/34799623/56171171-4a7c7a80-5fb2-11e9-83f5-698d6425b87e.jpg)
 
 <h2 id="agent">AGENT PROFILE PAGE</h2> 
 (before placing a bid) After signing up/logging in as an agent, you will be directed to your profile page. The profile page consists of one main section that shows bids that you have submitted on properties (description of bid view below). The profile page also contains a link that directs the user to the search page.
