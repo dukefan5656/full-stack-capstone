@@ -171,7 +171,7 @@ Credentials (SSID)
 
 #### JSON Success Response:
 Code: 200
-          {bids:
+          res.json({bids:
            {id: 5c91a1aa77b93700175f5bfc},
           id: 5c91a1aa77b93700175f5bfc,
           headline: 'A beautiful, modern metropolitan condo!',
@@ -195,6 +195,6 @@ Code: 200
           footage: 1800,
           description:
            'Built in 2010, this modern property has all of the designs that an aesthetically minded person could want! It is within a 5             minute walk from the trendiest restaurants and bars in Asheville! An eager seller looking for an ambition agent!'
-         }
+         })
 
 Live App URL: https://fullstack-capstone.herokuapp.com/
