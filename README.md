@@ -177,13 +177,13 @@ Credentials (SSID)
            listing: 5c91a1aa77b93700175f5bfc,
            user: [Object],
            status: 'rejected',
-           __v: 0 },
+           },
          { _id: 5cb508308776240017d69cb0,
            amount: 250000,
            listing: 5c91a1aa77b93700175f5bfc,
            user: [Object],
            status: 'pending',
-           __v: 0 } ],
+           } ],
       _id: 5c91a1aa77b93700175f5bfc,
       headline: 'A beautiful, modern metropolitan condo!',
       street: '123 Smith st.',
@@ -192,9 +192,7 @@ Credentials (SSID)
       image: './styles/images/condo-1.jpg',
       user:
        { local:
-          { email: 'seller-demo@email.com',
-            password:
-             '$2a$08$zhq1FSAsnftCnfGzci4SLuOD.Joox95mT9552XVz9eLhgP.IXllL6' },
+          { email: 'seller-demo@email.com'},
          listings:
           [ 5c91a1aa77b93700175f5bfc,
             5c91a2f077b93700175f5bfd,
@@ -202,14 +200,14 @@ Credentials (SSID)
          bids: [],
          _id: 5c91a0f277b93700175f5bfb,
          type: 'seller',
-         __v: 5 },
+         },
       type: 'Condo',
       bed: 2,
       bath: 2,
       footage: 1800,
       description:
-       'Built in 2010, this modern property has all of the designs that an aesthetically minded person could want! It is within a 5             minute walk from the trendiest restaurants and bars in Asheville! An eager seller looking for an ambition agent!',
-      __v: 6 }
+       'Built in 2010, this modern property has all of the designs that an aesthetically...',
+      }
 
 
 
