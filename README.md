@@ -5,7 +5,9 @@
   2a. <a href="#seller">Seller</a><br>
   2b. <a href="#agent">Agent</a><br>
 3. <a href="#skills">Skills Used</a><br>
-4. <a href="#api">API Sample</a><br>
+4. Sample API
+  4a. <a href="front">Async Call From React Action</a><br>
+  4b. <a href="back">Server Handling Of Request</a><br>
 5. <a href="#links">Links to Github and Live Site</a><br><br>
 
  <h2 id="notes">Notes About The App</h2>
@@ -86,7 +88,7 @@ The agent can then click on one of the listings to view its full page overview.
 ### FULL LISTING OVERVIEW (AGENT) 
 The core functionality of the agent takes place here. The agent will see a form that has one input field (amount). This represents the bid amount that the agent believes they can successfully list the property at. Once this bid has been submitted, it becomes visibile on the full listing overview page, as well as back on the agent's profile page. The agent will NOT be able to see any bids submitted by other agents. The agent will have the ability to delete the bid from this page.
 
-
+![full-listing-agent](https://user-images.githubusercontent.com/34799623/56171962-5ae22480-5fb5-11e9-9b31-5cdbaf59147d.jpg)
 
 #### AGENT PROFILE (after bid) 
 The agent's profile will be populated with all of the bids that that agent has submitted for all listings. The agent has the ability to delete bids from this profile page as well. If a seller deletes an active listing that the agent has placed bids on, the bids are removed.
@@ -94,6 +96,114 @@ The agent's profile will be populated with all of the bids that that agent has s
 #### MINIFIED VIEW (after placing bid) 
 The agent is able to see the current status of the bid (default is pending). If the seller has changed the status of the bid, this is reflected on the agent's profile (accepted, rejected). The seller's personal information is not available to the agent, it is up to the seller to reach out to the agent once a bid has been accepted.
 
+<h2 id="front">Sample API</h2>
 
+#### Get Listing
+Returns json data about a single listing.
+
+#### URL
+/listing/:id
+
+#### Method:
+GET
+
+#### URL Params
+Required:
+id=[integer]
+
+#### Data Params
+Credentials (SSID)
+
+#### Sample Call From Action
+    export const GET_LISTING_SUCCESS = "GET_LISTING_SUCCESS";
+    export const getListingSuccess = json => {
+      const listingResults = normalize(json.listing, Listing);
+      return { type: GET_LISTING_SUCCESS, entities: listingResults.entities };
+    };
+
+    export const GET_LISTING_FAILURE = "GET_LISTING_FAILURE";
+    export const getListingFailure = error => {
+      return { type: GET_LISTING_FAILURE, message: error };
+    };
+
+    export const GET_LISTING_REQUEST = "GET_LISTING_REQUEST";
+    export const getListing = id => dispatch => {
+      dispatch({ type: GET_LISTING_REQUEST, id });
+      return fetch("/listing/" + id, {
+        method: "GET",
+        credentials: "include"
+      })
+        .then(res => {
+          if (res.headers.get("Content-Type").includes("application/json")) {
+            if (res.ok) {
+              return res.json();
+            }
+
+            return res.json().then(json => {
+              throw Error("API: " + JSON.stringify(json));
+            });
+          }
+
+          return res.text().then(text => {
+            throw Error("HTTP " + res.status + " : " + text);
+          });
+        })
+        .then(json => dispatch(getListingSuccess(json)))
+        .catch(error => dispatch(getListingFailure(error)));
+    };
+    
+
+<h2 id="back">Request Handling From Server</h2>
+
+#### Success Response:
+Code: 200
+JSON Response:
+        { bids:
+       [{_id: 5cb508308776240017d69cb0,
+           amount: 250000,
+           listing: 5c91a1aa77b93700175f5bfc,
+           user: [Object],
+           status: 'pending',
+           _v: 0 } ],
+      _id: 5c91a1aa77b93700175f5bfc,
+      headline: 'A beautiful, modern metropolitan condo!',
+      street: '123 Smith st.',
+      zip: '28805',
+      city: 'Asheville',
+      image: './styles/images/condo-1.jpg',
+      user:
+       { local:
+          { email: 'seller-demo@email.com'
+          },
+         listings:
+          [ 5c91a1aa77b93700175f5bfc,
+            5c91a2f077b93700175f5bfd,
+            5c92769df5f0220017d071c9 ],
+         bids: [],
+         id: 5c91a0f277b93700175f5bfb,
+         type: 'seller',
+         },
+      type: 'Condo',
+      bed: 2,
+      bath: 2,
+      footage: 1800,
+      description:
+       'Built in 2010, this modern property has all of the designs that an aesthetically minded person could want! It is within a 5 minute walk from the trendiest restaurants and bars in Asheville! An eager seller looking for an ambition agent!'
+     }
+
+Sample Call:
+
+    app.get("/listing/:id", isLoggedIn, (req, res, next) => {
+    Listing.findById(req.params.id)
+      .populate({
+        path: "bids",
+        populate: { path: "user", select: "local.email bids listings" }
+      })
+      .populate("user")
+      .then(listing => {
+        return res.json({ listing });
+      })
+      .catch(next);
+  });
 
 Live App URL: https://fullstack-capstone.herokuapp.com/
