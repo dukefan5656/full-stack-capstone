@@ -44,23 +44,23 @@ The listing created by the seller will contain the following fields:
 * Total sq. footage
 * A thorough description of the property.
 
-MINIFIED VIEW OF THE LISTING This view shows the headline the seller has created and (as of version 1) will show a default image. In this container, you can either click on it to redirect to the full listing information page, or delete the listing.
+### MINIFIED VIEW OF THE LISTING 
+This view shows the headline the seller has created and (as of version 1) will show a default image. In this container, you can either click on it to redirect to the full listing information page, or delete the listing.
 
-SELLER (after bids) Once a listing has received bids from an agent(s), the bid box on the right side of the profile page will be populated with a minified view of the bid. This will contain the image, who submitted the bid, the bid amount and the bid status (defaults to pending). From this box, you can change the bid status (reflected on the submitting agent's page) to either accepted or rejected.
+### SELLER (after bids) 
+Once a listing has received bids from an agent(s), the bid box on the right side of the profile page will be populated with a minified view of the bid. This will contain the image, who submitted the bid, the bid amount and the bid status (defaults to pending). From this box, you can change the bid status (reflected on the submitting agent's page) to either accepted or rejected.
 
 ![seller-profile](https://user-images.githubusercontent.com/34799623/56171180-50725b80-5fb2-11e9-9b16-defd458a1d92.jpg)
 
 
 <h2 id="agent">AGENT PROFILE PAGE</h2> 
-
 (before placing a bid) After signing up/logging in as an agent, you will be directed to your profile page. The profile page consists of one main section that shows bids that you have submitted on properties (description of bid view below). The profile page also contains a link that directs the user to the search page.
 
 ![agent-profile](https://user-images.githubusercontent.com/34799623/56171168-481a2080-5fb2-11e9-8cfb-d295af803abd.jpg)
 
 
 ### Agent Search
-
-(placeing a bid) When you are ready to place a bid, you must use the search function to find listings. You are able to submit up to 3 queries:
+When you are ready to place a bid, you must use the search function to find listings. You are able to submit up to 3 queries:
 
 * City
 * Zipcode
