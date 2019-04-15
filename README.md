@@ -170,31 +170,31 @@ Credentials (SSID)
   });
 
 #### JSON Success Response:
-Code: 200
-          res.json({bids:<br>
+Code: 200<br>
+          ```res.json({bids:<br>
            {id: 5c91a1aa77b93700175f5bfc},<br>
           id: 5c91a1aa77b93700175f5bfc,<br>
-          headline: 'A beautiful, modern metropolitan condo!',
-          street: '123 Smith st.',
-          zip: '28805',
-          city: 'Asheville',
-          image: './styles/images/condo-1.jpg',
-          user:
-           { local:
-              { email: 'seller-demo@email.com'
-              },
-             listings:
-              [],
-             bids: [],
-             id: 5c91a0f277b93700175f5bfb,
-             type: 'seller',
-             },
-          type: 'Condo',
-          bed: 2,
-          bath: 2,
-          footage: 1800,
-          description:
-           'Built in 2010, this modern property has all of the designs that an aesthetically minded person could want! It is within a 5             minute walk from the trendiest restaurants and bars in Asheville! An eager seller looking for an ambition agent!'
-         })
+          headline: 'A beautiful, modern metropolitan condo!',<br>
+          street: '123 Smith st.',<br>
+          zip: '28805',<br>
+          city: 'Asheville',<br>
+          image: './styles/images/condo-1.jpg',<br>
+          user:<br>
+           { local:<br>
+              { email: 'seller-demo@email.com'<br>
+              },<br>
+             listings:<br>
+              [],<br>
+             bids: [],<br>
+             id: 5c91a0f277b93700175f5bfb,<br>
+             type: 'seller',<br>
+             },<br>
+          type: 'Condo',<br>
+          bed: 2,<br>
+          bath: 2,<br>
+          footage: 1800,<br>
+          description:<br>
+           'Built in 2010, this modern property has all of the designs that an aesthetically minded person could want! It is within a 5             minute walk from the trendiest restaurants and bars in Asheville! An eager seller looking for an ambition agent!'<br>
+         })```
 
 Live App URL: https://fullstack-capstone.herokuapp.com/
