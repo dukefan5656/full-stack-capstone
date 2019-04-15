@@ -155,16 +155,24 @@ Credentials (SSID)
 
 <h2 id="back">Request Handling From Server</h2>
 
-#### Success Response:
+#### Sample Call:
+    app.get("/listing/:id", isLoggedIn, (req, res, next) => {
+    Listing.findById(req.params.id)
+      .populate({
+        path: "bids",
+        populate: { path: "user", select: "local.email bids listings" }
+      })
+      .populate("user")
+      .then(listing => {
+        return res.json({ listing });
+      })
+      .catch(next);
+  });
+
+#### JSON Success Response:
 Code: 200
-JSON Response
-          `{bids:
-           [{id: 5cb508308776240017d69cb0,
-               amount: 250000,
-               listing: 5c91a1aa77b93700175f5bfc,
-               user: [Object],
-               status: 'pending',
-               } ],
+          {bids:
+           {id: 5c91a1aa77b93700175f5bfc},
           id: 5c91a1aa77b93700175f5bfc,
           headline: 'A beautiful, modern metropolitan condo!',
           street: '123 Smith st.',
@@ -187,21 +195,6 @@ JSON Response
           footage: 1800,
           description:
            'Built in 2010, this modern property has all of the designs that an aesthetically minded person could want! It is within a 5             minute walk from the trendiest restaurants and bars in Asheville! An eager seller looking for an ambition agent!'
-         }`
-
-Sample Call:
-
-    app.get("/listing/:id", isLoggedIn, (req, res, next) => {
-    Listing.findById(req.params.id)
-      .populate({
-        path: "bids",
-        populate: { path: "user", select: "local.email bids listings" }
-      })
-      .populate("user")
-      .then(listing => {
-        return res.json({ listing });
-      })
-      .catch(next);
-  });
+         }
 
 Live App URL: https://fullstack-capstone.herokuapp.com/
