@@ -157,15 +157,15 @@ Credentials (SSID)
 
 #### Success Response:
 Code: 200
-JSON Response:
-          {bids:
+JSON Response
+          ```{bids:
            [{id: 5cb508308776240017d69cb0,
                amount: 250000,
                listing: 5c91a1aa77b93700175f5bfc,
                user: [Object],
                status: 'pending',
-               _v: 0 } ],
-          _id: 5c91a1aa77b93700175f5bfc,
+               } ],
+          id: 5c91a1aa77b93700175f5bfc,
           headline: 'A beautiful, modern metropolitan condo!',
           street: '123 Smith st.',
           zip: '28805',
@@ -176,9 +176,7 @@ JSON Response:
               { email: 'seller-demo@email.com'
               },
              listings:
-              [ 5c91a1aa77b93700175f5bfc,
-                5c91a2f077b93700175f5bfd,
-                5c92769df5f0220017d071c9 ],
+              [],
              bids: [],
              id: 5c91a0f277b93700175f5bfb,
              type: 'seller',
@@ -189,7 +187,7 @@ JSON Response:
           footage: 1800,
           description:
            'Built in 2010, this modern property has all of the designs that an aesthetically minded person could want! It is within a 5             minute walk from the trendiest restaurants and bars in Asheville! An eager seller looking for an ambition agent!'
-         }
+         }```
 
 Sample Call:
 
