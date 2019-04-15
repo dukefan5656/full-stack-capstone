@@ -1,13 +1,13 @@
 # Your Move
 
-<h3 id="index">Index</h3>
-1. <a href="#notes">Notes</a>
-2. <a href="#user">User Story</a>
-  2a. <a href="#seller">Seller</a>
-  2b. <a href="#agent">Agent</a>
-3. <a href="#skills">Skills Used</a>
-4. <a href="#api">API Sample</a>
-5. <a href="#links">Links to Github and Live Site</a>
+<h3 id="index">Index</h3><br>
+1. <a href="#notes">Notes</a><br>
+2. <a href="#user">User Story</a><br>
+  2a. <a href="#seller">Seller</a><br>
+  2b. <a href="#agent">Agent</a><br>
+3. <a href="#skills">Skills Used</a><br>
+4. <a href="#api">API Sample</a><br>
+5. <a href="#links">Links to Github and Live Site</a><br><br>
 
  <h2 id="notes">Notes About The App</h2>
 
@@ -27,6 +27,8 @@ When you visit the app, you will be required to sign-up with an email, password,
 <h2 id="seller">SELLER PROFILE PAGE</h2> (before bids) 
 
 The profile page consists of three main sections. On the left side is a container for created listings, in the center is the form for creating a listing, and on the right side is the container for bids received.
+
+![seller-empty](https://user-images.githubusercontent.com/34799623/56171658-1a35db80-5fb4-11e9-80e0-b2de8cf15ea3.jpg)
 
 ### SELLER (before bids) 
 Once logged in as a seller, you will have the ability to create listings from your profile page for properties that you hope to sell (description of a listing below). You will be able to create multiple listings. Once the listing has been created, it will be shown in a minified version on your profile page (description of minified listing view below).
