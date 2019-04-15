@@ -171,9 +171,9 @@ Credentials (SSID)
 
 #### JSON Success Response:
 Code: 200
-          res.json({bids:
-           {id: 5c91a1aa77b93700175f5bfc},
-          id: 5c91a1aa77b93700175f5bfc,
+          res.json({bids:<br>
+           {id: 5c91a1aa77b93700175f5bfc},<br>
+          id: 5c91a1aa77b93700175f5bfc,<br>
           headline: 'A beautiful, modern metropolitan condo!',
           street: '123 Smith st.',
           zip: '28805',
