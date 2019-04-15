@@ -158,7 +158,7 @@ Credentials (SSID)
 #### Success Response:
 Code: 200
 JSON Response
-          ```{bids:
+          `{bids:
            [{id: 5cb508308776240017d69cb0,
                amount: 250000,
                listing: 5c91a1aa77b93700175f5bfc,
@@ -187,7 +187,7 @@ JSON Response
           footage: 1800,
           description:
            'Built in 2010, this modern property has all of the designs that an aesthetically minded person could want! It is within a 5             minute walk from the trendiest restaurants and bars in Asheville! An eager seller looking for an ambition agent!'
-         }```
+         }`
 
 Sample Call:
 
