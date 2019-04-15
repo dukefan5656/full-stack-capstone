@@ -1,8 +1,13 @@
-Title: Your Move
+# Your Move
 
-Live App URL: https://fullstack-capstone.herokuapp.com/
+<h3 id="index">Index</h3>
+1. User Story
+  1a. Seller
+  2b. Agent
+2. Skills Used
+3. API Sample
+4. Links to Github and Live Site
 
-NOTE TO EVALUATOR (This message will self-destruct after evaluation) It was agreed upon after days of deployment issues, that the file structure would be one that included a single commitment.
 
 When you visit the app, you will be required to sign-up with an email, password, and user type. This user type is a required field that consists of either a seller or an agent.
 
@@ -45,3 +50,5 @@ AGENT PROFILE (after bid) The agent's profile will be populated with all of the 
 MINIFIED VIEW (after placing bid) The agent is able to see the current status of the bid (default is pending). If the seller has changed the status of the bid, this is reflected on the agent's profile (accepted, rejected). The seller's personal information is not available to the agent, it is up to the seller to reach out to the agent once a bid has been accepted.
 
 USER CONTROLS Currently, a UX decision has been made so that neither the listing nor the bid can be edited. This is a purposeful decision so that neither side can make a claim to false information about the listing or the bid.
+
+Live App URL: https://fullstack-capstone.herokuapp.com/
