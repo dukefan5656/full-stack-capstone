@@ -167,36 +167,50 @@ Credentials (SSID)
         return res.json({ listing });
       })
       .catch(next);
-  });
+    });
 
 #### JSON Success Response:
-Code: 200
-JSON response will not format due to length
-          const listingSchema = mongoose.Schema(
-          {
-            headline: String,
-            street: String,
-            zip: String,
-            city: String,
-            state: String,
-            type: String,
-            user: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
-            bids: [{ type: mongoose.Schema.Types.ObjectId, ref: "Bid" }],
-            bed: Number,
-            bath: Number,
-            footage: Number,
-            image: String,
-            description: String,
-            issuedAt: Date,
-            expiresAt: Date,
-            deleted: {
-              deletedDate: Date,
-              is: Boolean
-            },
-            status: String
-          },
-          { usePushEach: true }
-        );
+
+    { bids:
+       [ { _id: 5c91a3ad77b93700175f5c02,
+           amount: 300000,
+           listing: 5c91a1aa77b93700175f5bfc,
+           user: [Object],
+           status: 'rejected',
+           __v: 0 },
+         { _id: 5cb508308776240017d69cb0,
+           amount: 250000,
+           listing: 5c91a1aa77b93700175f5bfc,
+           user: [Object],
+           status: 'pending',
+           __v: 0 } ],
+      _id: 5c91a1aa77b93700175f5bfc,
+      headline: 'A beautiful, modern metropolitan condo!',
+      street: '123 Smith st.',
+      zip: '28805',
+      city: 'Asheville',
+      image: './styles/images/condo-1.jpg',
+      user:
+       { local:
+          { email: 'seller-demo@email.com',
+            password:
+             '$2a$08$zhq1FSAsnftCnfGzci4SLuOD.Joox95mT9552XVz9eLhgP.IXllL6' },
+         listings:
+          [ 5c91a1aa77b93700175f5bfc,
+            5c91a2f077b93700175f5bfd,
+            5c92769df5f0220017d071c9 ],
+         bids: [],
+         _id: 5c91a0f277b93700175f5bfb,
+         type: 'seller',
+         __v: 5 },
+      type: 'Condo',
+      bed: 2,
+      bath: 2,
+      footage: 1800,
+      description:
+       'Built in 2010, this modern property has all of the designs that an aesthetically minded person could want! It is within a 5             minute walk from the trendiest restaurants and bars in Asheville! An eager seller looking for an ambition agent!',
+      __v: 6 }
+
 
 
 Live App URL: https://fullstack-capstone.herokuapp.com/
