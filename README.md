@@ -44,13 +44,18 @@ The listing created by the seller will contain the following fields:
 * Total sq. footage
 * A thorough description of the property.
 
-### MINIFIED VIEW OF THE LISTING 
-This view shows the headline the seller has created and (as of version 1) will show a default image. In this container, you can either click on it to redirect to the full listing information page, or delete the listing.
-
 ### SELLER (after bids) 
 Once a listing has received bids from an agent(s), the bid box on the right side of the profile page will be populated with a minified view of the bid. This will contain the image, who submitted the bid, the bid amount and the bid status (defaults to pending). From this box, you can change the bid status (reflected on the submitting agent's page) to either accepted or rejected.
 
 ![seller-profile](https://user-images.githubusercontent.com/34799623/56171180-50725b80-5fb2-11e9-9b16-defd458a1d92.jpg)
+
+
+### MINIFIED VIEW OF THE LISTING 
+This view shows the headline the seller has created and (as of version 1) will show a default image. In this container, you can either click on it to redirect to the full listing information page, or delete the listing.
+
+### View Full Listing As Seller
+By clicking on a mini-listing component, you will be taken to the full listing overview page. This is where you can review all of the information submitted for a listing. You are also able to delete the listing and/or accept/reject bids. 
+
 
 
 <h2 id="agent">AGENT PROFILE PAGE</h2> 
@@ -82,7 +87,6 @@ The agent can then click on one of the listings to view its full page overview.
 ### FULL LISTING OVERVIEW (AGENT) 
 The core functionality of the agent takes place here. The agent will see a form that has one input field (amount). This represents the bid amount that the agent believes they can successfully list the property at. Once this bid has been submitted, it becomes visibile on the full listing overview page, as well as back on the agent's profile page. The agent will NOT be able to see any bids submitted by other agents. The agent will have the ability to delete the bid from this page.
 
-![full-listing](https://user-images.githubusercontent.com/34799623/56171171-4a7c7a80-5fb2-11e9-83f5-698d6425b87e.jpg)
 
 
 #### AGENT PROFILE (after bid) 
