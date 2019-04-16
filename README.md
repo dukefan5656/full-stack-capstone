@@ -59,11 +59,9 @@ By clicking on a mini-listing component, you will be taken to the full listing o
 
 ![full-listing](https://user-images.githubusercontent.com/34799623/56171171-4a7c7a80-5fb2-11e9-83f5-698d6425b87e.jpg)
 
-<h2 id="agent">AGENT PROFILE PAGE</h2> 
-(before placing a bid) After signing up/logging in as an agent, you will be directed to your profile page. The profile page consists of one main section that shows bids that you have submitted on properties (description of bid view below). The profile page also contains a link that directs the user to the search page.
+<h2 id="agent">AGENT PROFILE PAGE</h2> (before placing a bid) 
 
-![agent-profile](https://user-images.githubusercontent.com/34799623/56171168-481a2080-5fb2-11e9-8cfb-d295af803abd.jpg)
-
+After signing up/logging in as an agent, you will be directed to your profile page. The profile page consists of one main section that shows bids (currently does not contain any content until a bid is placed) that you have submitted on properties (description of bid view below). The profile page also contains a link that directs the user to the search page.
 
 ### Agent Search
 When you are ready to place a bid, you must use the search function to find listings. You are able to submit up to 3 queries:
@@ -92,6 +90,8 @@ The core functionality of the agent takes place here. The agent will see a form 
 
 #### AGENT PROFILE (after bid) 
 The agent's profile will be populated with all of the bids that that agent has submitted for all listings. The agent has the ability to delete bids from this profile page as well. If a seller deletes an active listing that the agent has placed bids on, the bids are removed.
+
+![agent-profile](https://user-images.githubusercontent.com/34799623/56171168-481a2080-5fb2-11e9-8cfb-d295af803abd.jpg)
 
 #### MINIFIED VIEW (after placing bid) 
 The agent is able to see the current status of the bid (default is pending). If the seller has changed the status of the bid, this is reflected on the agent's profile (accepted, rejected). The seller's personal information is not available to the agent, it is up to the seller to reach out to the agent once a bid has been accepted.
