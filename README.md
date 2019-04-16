@@ -96,6 +96,46 @@ The agent's profile will be populated with all of the bids that that agent has s
 #### MINIFIED VIEW (after placing bid) 
 The agent is able to see the current status of the bid (default is pending). If the seller has changed the status of the bid, this is reflected on the agent's profile (accepted, rejected). The seller's personal information is not available to the agent, it is up to the seller to reach out to the agent once a bid has been accepted.
 
+<h2 id="skills">Skills Used</h2>
+
+#### Front End Dependencies
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.11.2",
+    "isomorphic-fetch": "^2.2.1",
+    "node": "^11.12.0",
+    "normalizr": "^3.3.0",
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3",
+    "react-redux": "^6.0.1",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "2.1.5",
+    "react-thunk": "^1.0.0",
+    "redux": "^4.0.1",
+    "redux-mock-store": "^1.5.3",
+    "redux-persist": "^5.10.0",
+    "redux-react-session": "^2.5.0",
+    "redux-thunk": "^2.3.0"
+
+#### Back End Dependencies
+    "bcrypt-nodejs": "0.0.3",
+    "bcryptjs": "^2.4.0",
+    "body-parser": "^1.15.2",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.4",
+    "cors": "^2.8.5",
+    "dotenv": "^4.0.0",
+    "express": "^4.14.0",
+    "express-session": "^1.15.6",
+    "jquery": "^3.3.1",
+    "jsonwebtoken": "^8.2.0",
+    "method-override": "^2.3.10",
+    "mongoose": "^5.4.7",
+    "morgan": "^1.7.0",
+    "passport": "^0.3.2",
+    "passport-jwt": "^2.2.1",
+    "passport-local": "^1.0.0",    
+
 <h2 id="front">Sample API</h2>
 
 #### Get Listing
